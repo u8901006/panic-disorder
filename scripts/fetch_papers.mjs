@@ -113,30 +113,55 @@ function getRecentPmids(collected, days = 7) {
 
 async function searchPapers(query, retmax = 50) {
   const url = `${PUBMED_SEARCH}?db=pubmed&term=${encodeURIComponent(query)}&retmax=${retmax}&sort=date&retmode=json`;
-  try {
-    const resp = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(30000) });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const data = await resp.json();
-    return data?.esearchresult?.idlist || [];
-  } catch (e) {
-    console.error(`[ERROR] PubMed search failed: ${e.message}`);
-    return [];
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const resp = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(30000) });
+      if (resp.status === 429) {
+        const wait = 5000 * (attempt + 1);
+        console.error(`[WARN] Rate limited on search, waiting ${wait}ms...`);
+        await new Promise((r) => setTimeout(r, wait));
+        continue;
+      }
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+      return data?.esearchresult?.idlist || [];
+    } catch (e) {
+      console.error(`[ERROR] PubMed search failed: ${e.message}`);
+      if (attempt < 2) await new Promise((r) => setTimeout(r, 3000));
+    }
   }
+  return [];
 }
 
 async function fetchDetails(pmids) {
   if (!pmids.length) return [];
-  const ids = pmids.join(",");
-  const url = `${PUBMED_FETCH}?db=pubmed&id=${ids}&retmode=xml`;
-  try {
-    const resp = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(60000) });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const xml = await resp.text();
-    return parseXml(xml);
-  } catch (e) {
-    console.error(`[ERROR] PubMed fetch failed: ${e.message}`);
-    return [];
+  const batchSize = 50;
+  const allPapers = [];
+  for (let i = 0; i < pmids.length; i += batchSize) {
+    const batch = pmids.slice(i, i + batchSize);
+    const ids = batch.join(",");
+    const url = `${PUBMED_FETCH}?db=pubmed&id=${ids}&retmode=xml`;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const resp = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(60000) });
+        if (resp.status === 429) {
+          const wait = 5000 * (attempt + 1);
+          console.error(`[WARN] Rate limited on fetch, waiting ${wait}ms...`);
+          await new Promise((r) => setTimeout(r, wait));
+          continue;
+        }
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const xml = await resp.text();
+        allPapers.push(...parseXml(xml));
+        break;
+      } catch (e) {
+        console.error(`[ERROR] PubMed fetch failed (attempt ${attempt + 1}): ${e.message}`);
+        if (attempt < 2) await new Promise((r) => setTimeout(r, 3000));
+      }
+    }
+    if (i + batchSize < pmids.length) await new Promise((r) => setTimeout(r, 1500));
   }
+  return allPapers;
 }
 
 function parseXml(xml) {
@@ -221,6 +246,7 @@ async function main() {
     const ids = await searchPapers(fullQuery, 20);
     for (const id of ids) allPmids.add(id);
     console.error(`  [${sq.name}] found ${ids.length} PMIDs`);
+    await new Promise((r) => setTimeout(r, 1500));
   }
 
   console.error(`[INFO] Unique PMIDs: ${allPmids.size}`);
