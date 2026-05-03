@@ -42,11 +42,11 @@ jobs:
           fi
           echo "Date: $(grep target $GITHUB_OUTPUT | cut -d= -f2)"
 
-      - name: Fetch papers from PubMed
+      - name: Fetch papers (PubMed + Crossref + Semantic Scholar)
         run: |
           node scripts/fetch_papers.mjs \
-            --days 7 \
-            --max-papers 50 \
+            --days 14 \
+            --max-papers 100 \
             --output papers.json
         continue-on-error: true
 
