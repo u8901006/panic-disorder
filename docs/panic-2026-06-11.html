@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panic Disorder Research Daily &middot; 恐慌症研究文獻日報 &middot; 2026年6月11日</title>
+<meta name="description" content="2026年6月11日 恐慌症研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12.5px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 8px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; animation: fadeUp 0.5s ease 0.4s both; }
+  .banner-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .banner-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .banner-icon { font-size: 28px; flex-shrink: 0; }
+  .banner-text { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .banner-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">😰</div>
+    <div class="header-text">
+      <h1>Panic Disorder Research &middot; 恐慌症研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年6月11日</span>
+        <span class="badge badge-count">📊 5 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻亮點聚焦於恐慌症的內感受處理機制，一項大型統合分析（22篇研究、N=1,263）首次證實最大自願憋氣時間可有效區分恐慌症患者與健康者，為臨床評估提供簡便的行為指標。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#1</span>
+        <span class="emoji-icon">🌬️</span>
+        <span class="utility-mid">中實用性</span>
+      </div>
+      <h3>最大自願憋氣時間與焦慮相關脆弱性：系統性文獻回顧與統合分析</h3>
+      <p class="journal-source">Biological Psychology &middot; Breath-Hold Time and Anxiety-Related Vulnerability: A Systematic Review and Meta-Analysis.</p>
+      <p>此統合分析證實恐慌症患者最大自願憋氣時間顯著短於健康對照組（中等效應量、低異質性），且與狀態焦慮強烈相關，支持其作為呼吸內感受耐受度的行為標記。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">焦慮症成人患者（含恐慌症及其他焦慮症）與健康對照組，共22篇研究1,263人</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">最大自願憋氣時間測試</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組及非恐慌症焦慮症組</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">恐慌症組憋氣時間顯著較短（中等效應量），與狀態焦慮及即時不適感顯著相關，但與特質焦慮相關性不顯著；非恐慌症焦慮症組效應量小且不顯著</span></div>
+    </div>
+      <p class="utility-reason">💡 提供一個簡單、客觀且免費的臨床評估工具，可用於評估恐慌症患者的呼吸內感受耐受度，輔助治療規劃</p>
+      <div class="card-footer">
+        <span class="tag">呼吸調節</span><span class="tag">焦慮敏感性</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42264026/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#2</span>
+        <span class="emoji-icon">🧠</span>
+        <span class="utility-low">低實用性</span>
+      </div>
+      <h3>探討不確定性容忍度與威脅消退學習的關係：控制焦慮相關症狀後的分析</h3>
+      <p class="journal-source">Behaviour Research and Therapy &middot; Investigating the relationship between intolerance of uncertainty and threat extinction learning whilst controlling for anxiety-related symptoms.</p>
+      <p>此研究發現不確定性容忍度在控制症狀後，無法一致預測皮膚電導的消退學習表現，挑戰了先前認為IU是暴露治療關鍵障礙的假說。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">101名健康參與者，測量IU、特質焦慮及恐慌症等症狀問卷</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">兩天巴夫洛夫威脅制約任務（含習得、消退、消退保留階段）</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">控制特質焦慮及各類焦慮症狀變項後，檢驗IU與消退學習的獨立關聯</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">IU未能預測差異性皮膚電導反應的消退，僅在刺激預期與焦慮評分部分指標上有顯著但不一致的關聯</span></div>
+    </div>
+      <p class="utility-reason">💡 研究結果與既往文獻矛盾，且使用健康樣本，對臨床實務的直接指導意義有限</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">恐慌症認知模型</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42048828/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#3</span>
+        <span class="emoji-icon">❤️</span>
+        <span class="utility-low">低實用性</span>
+      </div>
+      <h3>愛是一場必輸的遊戲：社交焦慮症中的浪漫愛情體驗</h3>
+      <p class="journal-source">Journal of Anxiety Disorders &middot; Love is a losing game: The experience of romantic love in social anxiety disorder.</p>
+      <p>21天日記研究發現恐慌症患者的愛情體驗可預測隔日焦慮降低，與社交焦慮症呈現相反模式，顯示兩種焦慮症在正向情緒調節上存在本質差異。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">社交焦慮症(n=44)、恐慌症(n=29)與健康對照組(n=43)</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">21天連續日記法測量每日愛情體驗與焦慮狀態</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">三組間愛情體驗水準及愛情體驗預測隔日焦慮的時序關係比較</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">恐慌症組的愛情體驗預測隔日焦慮下降(d=0.53)，社交焦慮症組預測焦慮上升(d=0.69)，對照組無顯著關聯</span></div>
+    </div>
+      <p class="utility-reason">💡 主要聚焦社交焦慮症，恐慌症為次要比較組，對恐慌症治療的直接應用價值有限</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症共病</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41875619/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🔬</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>超高清7T擴散加權成像揭示廣泛性焦慮症的大腦白質束差異性變化</h3>
+      <p class="journal-source">Journal of Affective Disorders</p>
+      <p>使用7T超高清擴散加權成像技術探討廣泛性焦慮症患者的大腦白質結構變化（無摘要可用）。</p>
+      <div class="card-footer">
+        <span class="tag">神經影像學</span>
+        <a href="https://doi.org/10.1016/j.jad.2026.121989" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">📚</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>探索護理學術界AI輔助研究汙名化的質性研究：護理學者的道德判斷與認知焦慮</h3>
+      <p class="journal-source">Nurse Education Today</p>
+      <p>探討護理學術界對AI輔助研究的汙名化現象及相關焦慮（無摘要，與臨床恐慌症無直接關聯）。</p>
+      <div class="card-footer">
+        <span class="tag">跨文化研究</span>
+        <a href="https://doi.org/10.1016/j.nedt.2026.107219" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+        <span class="topic-name">呼吸調節</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">焦慮敏感性</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">暴露治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">恐慌症認知模型</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">恐慌症共病</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">神經影像學</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">1</span>
+      </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">內感受耐受度</span><span class="keyword">憋氣時間</span><span class="keyword">呼吸挑戰</span><span class="keyword">消退學習</span><span class="keyword">不確定性容忍度</span><span class="keyword">日記法</span><span class="keyword">正向情緒</span></div></div>
+
+  <div class="links-banner">
+    <a href="https://www.leepsyclinic.com/" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">🏥</span>
+      <span class="banner-text">李政洋身心診所首頁</span>
+      <span class="banner-arrow">→</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">📬</span>
+      <span class="banner-text">訂閱電子報</span>
+      <span class="banner-arrow">→</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">☕</span>
+      <span class="banner-text">Buy Me a Coffee</span>
+      <span class="banner-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：GLM-5-Turbo</span>
+    <span><a href="https://github.com/u8901006/panic-disorder">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
