@@ -83,7 +83,7 @@ try {
     </a>
   </div>
   <footer>
-    <p>Powered by PubMed + Zhipu AI &middot; <a href="https://github.com/u8901006/panic-disorder">GitHub</a></p>
+    <p>Powered by PubMed + NVIDIA AI &middot; <a href="https://github.com/u8901006/panic-disorder">GitHub</a></p>
   </footer>
 </div>
 </body>

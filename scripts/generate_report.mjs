@@ -5,8 +5,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DOCS_DIR = join(__dirname, "..", "docs");
 
-const API_BASE = process.env.ZHIPU_API_BASE || "https://open.bigmodel.cn/api/coding/paas/v4";
-const MODELS = ["glm-5-turbo", "glm-4.7", "glm-4.7-flash"];
+const API_BASE = 'https://integrate.api.nvidia.com/v1';
+const MODELS = ['nvidia/nemotron-3-super-120b-a12b', 'nvidia/nemotron-3-nano-30b-a3b'];
 
 const SYSTEM_PROMPT = `你是恐慌症（Panic Disorder）領域的資深研究員與科學傳播者。你的任務是：
 1. 從提供的醫學文獻中，篩選出最具臨床意義與研究價值的恐慌症相關論文
@@ -29,7 +29,7 @@ function parseArgsCLI() {
     if (args[i] === "--output" && args[i + 1]) opts.output = args[++i];
     if (args[i] === "--api-key" && args[i + 1]) opts.apiKey = args[++i];
   }
-  opts.apiKey = opts.apiKey || process.env.ZHIPU_API_KEY || "";
+  opts.apiKey = opts.apiKey || process.env.NVIDIA_API_KEY || "";
   return opts;
 }
 
@@ -146,9 +146,9 @@ ${papersText}
               { role: "system", content: SYSTEM_PROMPT },
               { role: "user", content: prompt },
             ],
-            temperature: 0.3,
-            top_p: 0.9,
-            max_tokens: 100000,
+            temperature: 1.0,
+            top_p: 0.95,
+            max_tokens: 16384, stream: false, chat_template_kwargs: { enable_thinking: false },
           }),
           signal: AbortSignal.timeout(660000),
         });
@@ -358,7 +358,7 @@ function generateHtml(analysis) {
       <div class="header-meta">
         <span class="badge badge-date">📅 ${dateDisplay}</span>
         <span class="badge badge-count">📊 ${total} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
       </div>
     </div>
   </header>
@@ -395,7 +395,7 @@ function generateHtml(analysis) {
   </div>
 
   <footer>
-    <span>資料來源：PubMed &middot; 分析模型：GLM-5-Turbo</span>
+    <span>資料來源：PubMed &middot; 分析模型：NVIDIA Nemotron</span>
     <span><a href="https://github.com/u8901006/panic-disorder">GitHub</a></span>
   </footer>
 </div>
@@ -406,7 +406,7 @@ function generateHtml(analysis) {
 async function main() {
   const opts = parseArgsCLI();
   if (!opts.apiKey) {
-    console.error("[ERROR] No API key. Set ZHIPU_API_KEY env var or use --api-key");
+    console.error("[ERROR] No API key. Set NVIDIA_API_KEY env var or use --api-key");
     process.exit(1);
   }
   if (!opts.output) {
