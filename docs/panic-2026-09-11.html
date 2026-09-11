@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panic Disorder Research Daily &middot; 恐慌症研究文獻日報 &middot; 2026年9月11日</title>
+<meta name="description" content="2026年9月11日 恐慌症研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12.5px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 8px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; animation: fadeUp 0.5s ease 0.4s both; }
+  .banner-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .banner-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .banner-icon { font-size: 28px; flex-shrink: 0; }
+  .banner-text { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .banner-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">😰</div>
+    <div class="header-text">
+      <h1>Panic Disorder Research &middot; 恐慌症研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月11日</span>
+        <span class="badge badge-count">📊 12 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻聚焦於恐慌症的神經生物學機制（如HPA軸與毛髮皮質醇）、認知模型（尤其metacognition與mindfulness之差異）及暴露治療的優化策略，顯示正從單一治療模式轉向精準、機制導向與跨模式整合的趨勢。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#1</span>
+        <span class="emoji-icon">🧠</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>毛髮皮質醇濃度揭示恐慌症患者下丘腦-垂體-腎上腺軸長期 dysregulation</h3>
+      <p class="journal-source">Scientific Reports &middot; Hair cortisol concentrations to picture the dysregulation of the hypothalamic-pituitary-adrenocortical axis in panic disorder</p>
+      <p>發現恐慌症患者三個月內髮絲皮質醇濃度顯著高於健康對照組，提示HPA軸長期過度活化可能為恐慌症的生物學基礎，與過去假設的HPA軸疲乏相反，具重要臨床與研究意義。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">恐慌症患者 (n=45) 與健康對照組 (n=45)</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（觀察性研究：測量過去三個月髮絲中皮質醇累積濃度）</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">恐慌症群髮絲皮質醇濃度顯著升高；與病症持續時間、嚴重程度或併發憂鬱症無關</span></div>
+    </div>
+      <p class="utility-reason">💡 提供客觀、長期整合的生理壓力 biomarker，有助於區隔恐慌症生物亞型、監測治療對HPA軸的影響，並引導針對性壓力調節介入。</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症神經生物學</span><span class="tag">焦慮敏感性</span><span class="tag">神經影像學</span>
+        <a href="https://www.semanticscholar.org/paper/07c952d35dc71ef326e1f731501151833c2c9757" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#2</span>
+        <span class="emoji-icon">💭</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>社交焦慮症與恐慌症在metacognition與mindfulness上的差異模式：臨床嚴重度的特異性預測因子</h3>
+      <p class="journal-source">Clinical psychology &amp; psychotherapy &middot; Comparative Analysis of Metacognition and Mindfulness Across Social Anxiety Disorder, Panic Disorder and Healthy Controls.</p>
+      <p>恐慌症患者的metacognitive功能障礙顯著升高，尤其為「控制思想的需求」，這是唯一預測症狀嚴重度的metacognitive因子；而mindfulness在恐慌症中僅處於中間水平，對症狀無預測力，凸顯其病理機制與社交焦慮症的根本差異。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">社交焦慮症 (n=47)、恐慌症 (n=50)、健康對照組 (n=50)</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（橫斷式比較：使用MCQ-30與FFMQ-SF問卷）</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組與兩 clinical 群組間比較</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">恐慌症與社交焦慮症metacognitive功能障礙皆顯著高於對照組；恐慌症中僅『控制思想的需求』預測症狀嚴重度；社交焦慮症中觀察與不判斷面向的mindfulness預測較低症狀</span></div>
+    </div>
+      <p class="utility-reason">💡 精準指出恐慌症的認知治療標的：應著重針對『控制思想的信念』進行metacognitive療法，而非泛用mindfulness訓練，提升介入的針對性與效力。</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症認知模型</span><span class="tag">心理治療</span><span class="tag">焦慮敏感性</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42722366/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#3</span>
+        <span class="emoji-icon">📈</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>暴露治療中治療特定期待與學習速率如何中介廣泛負面期待對焦慮症療效的影響</h3>
+      <p class="journal-source">Psychotherapy and Psychosomatics &middot; From Expectation to Learning: A Mediational Model of Exposure Therapy Outcome in Anxiety Disorders</p>
+      <p>廣泛負面期待透過降低治療特定期待及降低暴露治療中的學習速率（ fear belief 更新），間接導致療效不佳；證實治療早期針對期待與學習機制的干預，可顯著改善暴露治療結果。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">各種焦慮症患者 (n=605) 接受12次標準化暴露治療</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">標準化手冊化暴露治療（Exposure Therapy）</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無對照組（中介效應分析）</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">廣泛負面期待 → 降低治療特定期待 (β=0.0375) → 降低學習速率 → 增加症狀；雙重中介效應顯著 (β=0.0059)，即使控制基線症狀</span></div>
+    </div>
+      <p class="utility-reason">💡 揭示暴露治療失敗的關鍵認知中介路徑，支持在療程初期加入認知重建與期待管理（如正向框架、 efficacy 增強），可提升恐慌症患者的暴露療效。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">恐慌症認知模型</span><span class="tag">心理治療</span>
+        <a href="https://www.semanticscholar.org/paper/7c3ecf0a47bcab330c8c05d49444a52c8e71899c" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#4</span>
+        <span class="emoji-icon">🎥</span>
+        <span class="utility-mid">中實用性</span>
+      </div>
+      <h3>虛擬實境暴露療法於大學生公開演說焦慮之隨機對照試驗方案：評量社交回饋的增益值</h3>
+      <p class="journal-source">Trials &middot; Virtual reality exposure therapy with graded interviewer reactions for public speaking anxiety in university students: a randomized controlled trial protocol</p>
+      <p>設計一個具社交互動回饋（graded interviewer reactions）的VRET方案，將與標準自動化VRET比較，以檢驗真人樣態的社交線索是否能進一步降低公開演說焦慮，具有高度創新與方法論嚴謹性。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">韓國大學生，PRPSA-18 ≥ 58 (n=92)</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">具社交回饋的VRET（虛擬面試官提供 graded verbal/nonverbal 反應）</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">僅自動語音提示的標準VRET (control)</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要指標：多時點Public Speaking Anxiety Scale (PSAS) 分數變化；次要：社交焦慮尺度、心率變異性、皮膚電活動、語音與運動模式</span></div>
+    </div>
+      <p class="utility-reason">💡 雖未公開結果，但此方案為檢驗社交線索在暴露療法中的關鍵角色提供了嚴謹RCT框架，若證實有效，將直接優化恐慌症伴隨社交回避或廣場恐懼的VRET應用。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">廣場恐懼症</span><span class="tag">心理治療</span><span class="tag">神經影像學</span>
+        <a href="https://www.semanticscholar.org/paper/8cc98d484b5c37d04d1adec2a79f708afc094d40" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#5</span>
+        <span class="emoji-icon">💔</span>
+        <span class="utility-mid">中實用性</span>
+      </div>
+      <h3>恐慌症共病於疲絲症候群患者中顯著加重生活品質下降，尤其在環境與心理域</h3>
+      <p class="journal-source">European Journal of Behavioral Sciences &middot; Quality of Life in Tetany Syndrome: The Role of Symptomatology, Attack Frequency, and Panic Disorder Comorbidity</p>
+      <p>伴隨恐慌症的疲絲症候群患者在整體生活品質、環境與心理顯著較無恐慌症併發者差，凸顯恐慌症併發對身體疾病負擔的放大效應，需整合身心治療。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">疲絲症候群患者 (n=158)，依是否合併恐慌症分組</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（橫斷式觀察：WHOQOL-BREF + 自編症狀與人口統計問卷）</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無恐慌症併發疲絲症候群患者</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">恐慌症併發組在整體QoL、心理、環境域顯著較低；症狀如疲乏、注意力不集中、焦慮感與攻擊頻率顯著相關</span></div>
+    </div>
+      <p class="utility-reason">💡 提醒臨床醫師：在處理功能性身體症狀（如疲絲）時，必須主動篩選恐慌症併發，因其顯著加重主觀負擔與環境適用力，影響治療依從與復原。</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症共病</span><span class="tag">恐慌症治療</span><span class="tag">心理治療</span>
+        <a href="https://www.semanticscholar.org/paper/80e2b5033ceb171ac9eea1eb786f80baa6b8b840" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">⏰</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>曝露治療於晨間進行是否更有效？關於暴治過程指標與日間皮質醇的初步數據（強迫症或廣場恐懼症橫樣）</h3>
+      <p class="journal-source">Journal of Clinical Medicine</p>
+      <p>儘管晨間皮質醇較高，但控制個體晨昏型後，暴露治療於早上08:00與下午16:00的過程指標（習慣化、苦澀Expectation violation）無顯著差異，提示單純依循節律安排暴露時段可能無法增強療效。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">廣場恐懼症</span><span class="tag">生理回饋</span>
+        <a href="https://www.semanticscholar.org/paper/adb8a02120023e22e839ab753ec8a1db3ea967e7" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">💊</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>廣場恐懼症的藥物與認知行為治療整合策略：敘事性文獻綜述</h3>
+      <p class="journal-source">International  Seven  Journal of Multidisciplinary</p>
+      <p>再次確認SSRIs為廣場恐懼症一線藥物治療，benzodiazepines僅限急性期使用；強調暴露療法為心理治療金標準，並提倡VRET與數位工具整合，同時指出metacognitive信念在維持迴避中的角色。</p>
+      <div class="card-footer">
+        <span class="tag">廣場恐懼症</span><span class="tag">恐慌症治療</span><span class="tag">藥物治療</span><span class="tag">認知行為治療</span>
+        <a href="https://www.semanticscholar.org/paper/179fe21d7110a4632f67a31e0cd53df5379757ef" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">📚</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>自我導引虛擬實境暴露療法於社交焦慮症的效果：系統性文獻綜述與meta分析方案</h3>
+      <p class="journal-source">Frontiers in Public Health</p>
+      <p>訂議一項嚴謹的系統文獻綜述，以評估SGVRET對社交焦慮症的療效，將納入RCTs並擬使用Stata 18進行meta分析，雖未納恐慌症，但方法論可間接啟發。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">心理治療</span>
+        <a href="https://www.semanticscholar.org/paper/136103182e0498995a0de7fefd67fc69275d7df9" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🌿</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>多 florin A 調節膽酸異構化與腦部分布，以緩解神經內分泌壓力並改善焦慮樣行為變化（動物實驗）</h3>
+      <p class="journal-source">Journal of Ethnopharmacology</p>
+      <p>摘要缺失，僅知為探索天然化合物multiflorin A對膽酸代謝及腦部分布的影響，聲稱可減輕神經內分泌壓力與焦慮樣行為，但缺乏人類恐慌症直接證據。</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症治療</span><span class="tag">精神藥理學</span>
+        <a href="https://doi.org/10.1016/j.jep.2026.122338" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🎮</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>以電子競技模擬暴露療法緩解社交焦慮：基於面部表情辨識與AI對話的3D遊戲平台初步評估</h3>
+      <p class="journal-source">2026 IEEE 2nd International Conference on Consumer Technology (ICCT-Pacific)</p>
+      <p>開發一款結合面部情緒辨識(FER)與IBM Watson對話系統的3D遊戲，能誘發適切情緒反應並維持使用者在可管理範圍內的參與度，顯示為早期社交焦慮暴露輔助工具的潛力，但未驗證臨床恐慌症效果。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">心理治療</span>
+        <a href="https://www.semanticscholar.org/paper/a72209332d4e9919b226805995f704248927d463" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🎻</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>虛擬實境暴露療法於音樂表演焦慮的應用：證據、優勢與未來方向</h3>
+      <p class="journal-source">Journal of Creative Arts</p>
+      <p>文獻綜述支持VRET於減少音樂表演焦慮、改善心率變異性及提升表演品質具有潛力，但強調不應取代現場練習，未來需縱向研究與標準化協議以確保長期益處。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">心理治療</span>
+        <a href="https://www.semanticscholar.org/paper/51d7c8e12d0b52b882a6459ea69e7c7eabf312f9" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🧘</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>正念認知療法與虛擬實境憂慮暴露療法對伊朗青少年社交焦慮之認知迴避與情感資本的準實驗研究</h3>
+      <p class="journal-source">Preventing School Failure: Alternative Education for Children and Youth</p>
+      <p>MBCT與VR-WET均顯著降低認知迴避、提升情感資本（ηp2＞.70），三個月後效應維持，但無對照組接受主動治療，兩介入間無差異，解釋性有限。</p>
+      <div class="card-footer">
+        <span class="tag">心理治療</span><span class="tag">兒少恐慌症</span>
+        <a href="https://www.semanticscholar.org/paper/eb9b6295849fc8e10e3886a81bdd8687519e269e" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+        <span class="topic-name">恐慌症治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:71%"></div></div>
+        <span class="topic-count">5</span>
+      </div><div class="topic-row">
+        <span class="topic-name">恐慌症神經生物學</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+        <span class="topic-count">2</span>
+      </div><div class="topic-row">
+        <span class="topic-name">恐慌症認知模型</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+        <span class="topic-count">3</span>
+      </div><div class="topic-row">
+        <span class="topic-name">暴露治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:86%"></div></div>
+        <span class="topic-count">6</span>
+      </div><div class="topic-row">
+        <span class="topic-name">廣場恐懼症</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+        <span class="topic-count">2</span>
+      </div><div class="topic-row">
+        <span class="topic-name">恐慌症共病</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">心理治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">7</span>
+      </div><div class="topic-row">
+        <span class="topic-name">焦慮敏感性</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+        <span class="topic-count">2</span>
+      </div><div class="topic-row">
+        <span class="topic-name">兒少恐慌症</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">神經影像學</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+        <span class="topic-count">2</span>
+      </div><div class="topic-row">
+        <span class="topic-name">生理回饋</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+        <span class="topic-count">1</span>
+      </div><div class="topic-row">
+        <span class="topic-name">精神藥理學</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+        <span class="topic-count">1</span>
+      </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">恐慌症</span><span class="keyword">毛髮皮質醇</span><span class="keyword">metacognition</span><span class="keyword">暴露治療</span><span class="keyword">虛擬實境</span><span class="keyword">生活品質</span><span class="keyword">共病</span><span class="keyword">廣場恐懼症</span></div></div>
+
+  <div class="links-banner">
+    <a href="https://www.leepsyclinic.com/" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">🏥</span>
+      <span class="banner-text">李政洋身心診所首頁</span>
+      <span class="banner-arrow">→</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">📬</span>
+      <span class="banner-text">訂閱電子報</span>
+      <span class="banner-arrow">→</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">☕</span>
+      <span class="banner-text">Buy Me a Coffee</span>
+      <span class="banner-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：NVIDIA Nemotron</span>
+    <span><a href="https://github.com/u8901006/panic-disorder">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
