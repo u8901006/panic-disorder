@@ -1,6 +1,11 @@
 name: Panic Disorder Daily Report
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/generate_report.mjs"
+      - ".github/workflows/daily-report.yml"
   schedule:
     - cron: "30 10 * * *" # UTC 10:30 = Taipei 18:30
   workflow_dispatch:
