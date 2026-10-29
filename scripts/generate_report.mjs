@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DOCS_DIR = join(__dirname, "..", "docs");
 
 const API_BASE = 'https://integrate.api.nvidia.com/v1';
-const MODELS = ['nvidia/nemotron-3-super-120b-a12b', 'nvidia/nemotron-3-nano-30b-a3b'];
+const MODELS = ['nvidia/nemotron-3.5-lightning-30b-a3b', 'google/gemma-4-31b-it'];
 
 const SYSTEM_PROMPT = `你是恐慌症（Panic Disorder）領域的資深研究員與科學傳播者。你的任務是：
 1. 從提供的醫學文獻中，篩選出最具臨床意義與研究價值的恐慌症相關論文
@@ -146,11 +146,12 @@ ${papersText}
               { role: "system", content: SYSTEM_PROMPT },
               { role: "user", content: prompt },
             ],
-            temperature: 1.0,
-            top_p: 0.95,
-            max_tokens: 16384, stream: false, chat_template_kwargs: { enable_thinking: false },
+            temperature: model.startsWith('google/') ? 0.5 : 1.0,
+            top_p: model.startsWith('google/') ? 1 : 0.95,
+            max_tokens: 16384, stream: false,
+            ...(model.startsWith('nvidia/') ? { chat_template_kwargs: { enable_thinking: false } } : {}),
           }),
-          signal: AbortSignal.timeout(660000),
+          signal: AbortSignal.timeout(180000),
         });
 
         if (resp.status === 429) {
