@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panic Disorder Research Daily &middot; 恐慌症研究文獻日報 &middot; 2026年11月27日</title>
+<meta name="description" content="2026年11月27日 恐慌症研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12.5px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 8px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; animation: fadeUp 0.5s ease 0.4s both; }
+  .banner-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .banner-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .banner-icon { font-size: 28px; flex-shrink: 0; }
+  .banner-text { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .banner-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">😰</div>
+    <div class="header-text">
+      <h1>Panic Disorder Research &middot; 恐慌症研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年11月27日</span>
+        <span class="badge badge-count">📊 5 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日檢索到 4 篇文獻，涵蓋了恐慌症的神經生物學基礎、青少年暴露治療預測因子以及潛在的生物標誌物研究。雖然直接針對恐慌症的臨床試驗較少，但關於神經機制與治療結果的相關研究提供了重要的理論與臨床指引。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#1</span>
+        <span class="emoji-icon">🧠</span>
+        <span class="utility-mid">中實用性</span>
+      </div>
+      <h3>恐慌症與躯體症狀障礙女性在情感誘發後的身體專注神經相關研究</h3>
+      <p class="journal-source">Journal of Affective Disorders &middot; Neural correlates of body-focused attention following emotion induction in women with somatic symptom disorder and panic disorder.</p>
+      <p>比較 SSD 与 PD 女性在情感誘發後身體專注 vs. 認知分散的神經反應，揭示了两者在顱下腦和顳上回激活模式上的差異，提供了恐慌症神經生物學特徵的新見解。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">女性躯體症狀障礙與恐慌症患者及健康對照</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">情感誘發後身體專注 vs. 認知分散任務</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">SSD 群與 PD 群之間的神經激活差異</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">識別出顱下腦與右�角回在恐慌症中的特異性激活模式，連結於 somatosensory amplification</span></div>
+    </div>
+      <p class="utility-reason">💡 雖然屬基礎研究，但有助於理解恐慌症患者異常的身體感知神經機制，未來可能指導針對神經回路的輔助治療。</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症神經生物學</span><span class="tag">神經影像學</span><span class="tag">躯體症狀障礙</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/43085433/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#2</span>
+        <span class="emoji-icon">📊</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>臨床焦慮青少年脅威滅滅機制與治療響應研究</h3>
+      <p class="journal-source">Behaviour research and therapy &middot; Threat extinction mechanisms and their association with treatment response in clinically anxious adolescents.</p>
+      <p>在焦慮青少年中，暴露治療前的主觀恐懼減少預測治療好轉，而持久的神經標誌物則預測治療失敗，提供了潛在的預測指標用於個別化暴露治療。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">主要診斷包括恐慌症的臨床焦慮青少年</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">暴露式治療</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">非焦慮對照組</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">暴露治療後症狀變化的預測因子</span></div>
+    </div>
+      <p class="utility-reason">💡 直接相關暴露治療（目前恐慌症一線心理治療），其發現的主觀恐懼指標可作為預測治療效果的生物標誌，具有立即臨床應用價值。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">恐慌症治療</span><span class="tag">認知行為治療</span><span class="tag">兒少恐慌症</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/43085167/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#3</span>
+        <span class="emoji-icon">💊</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>甲功不足與甲狀腺抗體對恐慌症様症狀的影響機制探討</h3>
+      <p class="journal-source">International Journal of Molecular Sciences &middot; Comprehensive Symptom Profiling in Hashimoto's Thyroiditis: The Role of TgAb and Hormonal Status.</p>
+      <p>發現甲狀腺功能治療並不能完全消除恐慌症様症狀，LT4 治療組反而報告症狀最重，且 fT4 與焦慮/驚嚇發作顯著相關，提醒臨床醫生在治療甲功不足時需注意共存的焦慮症狀。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">甲狀腺itis 患者（甲功正常、未治療甲功低下、LT4 受診治療組）</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">甲狀腺激素補充與抗體監測</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">甲功正常組 vs. 受診治療組</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">LT4 治療組出現最高症狀負荷，fT4 與焦慮/驚嚇發作呈正相關</span></div>
+    </div>
+      <p class="utility-reason">💡 雖非純粹恐慌症文獻，但其揭示了甲狀腺激素水平與焦慮/驚嚇發作的關聯，對於在基層醫療或內分泌門診中遇到不明原因焦慮的患者極具實用性。</p>
+      <div class="card-footer">
+        <span class="tag">恐慌症治療</span><span class="tag">藥物治療</span><span class="tag">生理回饋</span><span class="tag">基層醫療恐慌</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/43092113/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div><div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#4</span>
+        <span class="emoji-icon">📈</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>青少年焦慮症狀中暴露治療預測因子的神經生物學研究</h3>
+      <p class="journal-source">Behaviour research and therapy &middot; Threat extinction mechanisms and their association with treatment response in clinically anxious adolescents.</p>
+      <p>雖無組別差異，但個體在滅絕過程中主觀恐懼的變化量預測治療結論，持久的 LPP 顯預測治療失敗，這對於選擇適合的青少年進行暴露治療極具指導意義。</p>
+      <div class="pico-grid">
+      <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">有主要焦慮診斷（包括恐慌症）的臨床焦慮青少年</span></div>
+      <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">兩日威脅學習實驗預覆暴露治療</span></div>
+      <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">非焦慮青少年對照</span></div>
+      <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">暴露治療後症狀變化預測因子</span></div>
+    </div>
+      <p class="utility-reason">💡 與第2篇為同一文獻，重新強調了主觀恐懼調節在暴露治癗中的關鍵地位，確認了其作為預測指標的重要性。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">恐慌症治療</span><span class="tag">認知行為治療</span><span class="tag">兒少恐慌症</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/43085167/" target="_blank" rel="noopener">閱讀原文 →</a>
+      </div>
+    </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🔬</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>青少年焦慮症狀中暴露治療預測因子的神經生物學研究</h3>
+      <p class="journal-source">Behaviour research and therapy</p>
+      <p>同排名第 2-4 的文獻，詳細闡述了威脅滅絕程序中皮膚導電回應和事件相關電位的變化，並未發現組別間有顯著差異，但探討了神經標誌物與治療結果的關聯。</p>
+      <div class="card-footer">
+        <span class="tag">暴露治療</span><span class="tag">恐慌症治療</span><span class="tag">認知行為治療</span><span class="tag">兒少恐慌症</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/43085167/" target="_blank" rel="noopener">PubMed →</a>
+      </div>
+    </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+        <span class="topic-name">恐慌症治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">3</span>
+      </div><div class="topic-row">
+        <span class="topic-name">恐慌症神經生物學</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:67%"></div></div>
+        <span class="topic-count">2</span>
+      </div><div class="topic-row">
+        <span class="topic-name">暴露治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+        <span class="topic-count">3</span>
+      </div><div class="topic-row">
+        <span class="topic-name">認知行為治療</span>
+        <div class="topic-bar-bg"><div class="topic-bar" style="width:67%"></div></div>
+        <span class="topic-count">2</span>
+      </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">恐慌症</span><span class="keyword">神經生物學</span><span class="keyword">暴露治療</span><span class="keyword">甲功不全相關焦慮</span></div></div>
+
+  <div class="links-banner">
+    <a href="https://www.leepsyclinic.com/" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">🏥</span>
+      <span class="banner-text">李政洋身心診所首頁</span>
+      <span class="banner-arrow">→</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">📬</span>
+      <span class="banner-text">訂閱電子報</span>
+      <span class="banner-arrow">→</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="banner-link" target="_blank" rel="noopener">
+      <span class="banner-icon">☕</span>
+      <span class="banner-text">Buy Me a Coffee</span>
+      <span class="banner-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：NVIDIA Nemotron</span>
+    <span><a href="https://github.com/u8901006/panic-disorder">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
